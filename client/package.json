@@ -1,0 +1,16 @@
+{
+  "name": "copilot-open-world-client",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.7.2"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

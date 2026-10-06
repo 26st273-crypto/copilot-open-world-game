@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copilot Open World</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            overflow: hidden;
+        }
+        
+        #game-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #header {
+            background: #2d2d2d;
+            padding: 15px 20px;
+            border-bottom: 3px solid #0066cc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        #header h1 {
+            font-size: 24px;
+            color: #0066cc;
+        }
+        
+        #status {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+        
+        #canvas {
+            flex: 1;
+            display: block;
+            background: #87CEEB;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+        
+        #footer {
+            background: #2d2d2d;
+            padding: 10px 20px;
+            border-top: 2px solid #0066cc;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        #controls {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .info {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .label {
+            color: #0066cc;
+            font-weight: bold;
+        }
+        
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 1000;
+            display: none;
+        }
+        
+        #loading.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="header">
+            <h1>🤖 Copilot Open World</h1>
+            <div id="status">
+                <div class="info">
+                    <span class="label">Players:</span>
+                    <span id="player-count">0</span>
+                </div>
+                <div class="info">
+                    <span class="label">Position:</span>
+                    <span id="position">0, 0</span>
+                </div>
+                <div class="info">
+                    <span class="label">Mode:</span>
+                    <span id="mode">Build</span>
+                </div>
+            </div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div id="footer">
+            <div id="controls">
+                <span><strong>WASD/Arrow</strong> - Move</span>
+                <span><strong>Mouse</strong> - Place/Remove Block</span>
+                <span><strong>Left Click</strong> - Place | <strong>Right Click</strong> - Remove</span>
+                <span><strong>B</strong> - Toggle Build Mode</span>
+            </div>
+            <div id="stats"></div>
+        </div>
+    </div>
+    
+    <div id="loading" class="show">
+        <h2>Connecting to Copilot World...</h2>
+        <p style="margin-top: 10px;">Loading game engine...</p>
+    </div>
+    
+    <script type="module" src="./src/game.js"></script>
+</body>
+</html>
